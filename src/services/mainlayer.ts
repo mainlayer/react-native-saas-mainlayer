@@ -30,18 +30,30 @@ export function getClient(): MainlayerClient {
 
 /**
  * Check whether a user has an active subscription.
+ *
+ * @param userId - The user ID or identifier
+ * @returns true if user has active entitlement, false otherwise
  */
 export async function checkSubscription(userId: string): Promise<boolean> {
+  if (!userId) {
+    throw new Error('userId is required for checkSubscription');
+  }
   const client = getClient();
   return client.checkEntitlement(APP_RESOURCE_ID, userId);
 }
 
 /**
  * Get full entitlement details (plan, expiry, etc.).
+ *
+ * @param userId - The user ID or identifier
+ * @returns EntitlementStatus with plan and expiry info
  */
 export async function getEntitlementDetails(
   userId: string
 ): Promise<EntitlementStatus> {
+  if (!userId) {
+    throw new Error('userId is required for getEntitlementDetails');
+  }
   const client = getClient();
   return client.getEntitlementStatus(APP_RESOURCE_ID, userId);
 }

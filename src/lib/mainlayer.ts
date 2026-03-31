@@ -132,6 +132,10 @@ export class MainlayerClient {
     resourceId: string,
     payerWallet: string
   ): Promise<boolean> {
+    if (!resourceId || !payerWallet) {
+      throw new MainlayerError('resourceId and payerWallet are required');
+    }
+
     try {
       const result = await this.request<EntitlementStatus>(
         'GET',
@@ -158,6 +162,10 @@ export class MainlayerClient {
     resourceId: string,
     payerWallet: string
   ): Promise<PaymentResult> {
+    if (!resourceId || !payerWallet) {
+      throw new MainlayerError('resourceId and payerWallet are required');
+    }
+
     return this.request<PaymentResult>('POST', '/v1/payments', {
       resource_id: resourceId,
       payer: payerWallet,
