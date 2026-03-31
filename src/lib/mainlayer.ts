@@ -2,11 +2,11 @@
  * Mainlayer React Native Client
  *
  * Mainlayer is the subscription and entitlement infrastructure for AI agents and apps.
- * Base URL: https://api.mainlayer.xyz
+ * Base URL: https://api.mainlayer.fr
  * Auth: Bearer token (your Mainlayer API key)
  */
 
-const MAINLAYER_BASE_URL = 'https://api.mainlayer.xyz';
+const MAINLAYER_BASE_URL = 'https://api.mainlayer.fr';
 
 // ---------------------------------------------------------------------------
 // Types
